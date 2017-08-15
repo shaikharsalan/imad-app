@@ -5,6 +5,7 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+//reduce the code size by defining variable objects for each article 
 var articles = {
     'article-one' : {
         title : 'Article One' ,
@@ -28,6 +29,7 @@ var articles = {
     }
 };
 
+//created functn template which contain the commmon template for all the articles,it takes the objects of articles and create html file. 
 function  createTemplate(data){
     var title = data.title;
     var heading = data.heading;
@@ -77,6 +79,7 @@ app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
 
+//common for all 3 templates
 app.get('/:ArticleName',function(req,res){
     var ArticleName = req.params.ArticleName;
 	res.send(createTemplate(articles[ArticleName]));
