@@ -8,4 +8,4 @@ element.innerHTML = 'this text is change by javascript';
 var img = document.getElementById('dina');
 img.onClick = function(){
     img.style.marginleft = '100px';
-}
+};
